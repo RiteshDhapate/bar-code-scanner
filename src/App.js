@@ -131,6 +131,8 @@ function App() {
         className="main-reader"
         style={{ maxWidth: "100%", margin: "auto" }}
       ></div>
+      <br />
+      <br />
       <h1 style={{ wordBreak: "break-word" }}>{result}</h1>
     </div>
   );
