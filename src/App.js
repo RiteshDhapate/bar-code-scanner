@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {Html5QrcodeScanner} from "html5-qrcode"
+import { useEffect } from 'react';
 function App() {
+  useEffect(() => {
+    function onScanSuccess(decodedText, decodedResult) {
+      console.log(`Code scanned = ${decodedText}`, decodedResult);
+    }
+    var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
+      fps: 10,
+      qrbox: 250,
+    });
+    html5QrcodeScanner.render(onScanSuccess);
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="qr-reader" style={{ width: "600px" }}></div>
     </div>
   );
 }
