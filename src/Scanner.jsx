@@ -30,7 +30,7 @@ function Scanner() {
 
     const config = {
       fps: 10,
-      qrbox: getOptimalQrBoxSize(),
+      qrbox: { width: 250, height: 250 },
       rememberLastUsedCamera: true, // Ensures the same camera is used if the user reopens the scanner
     };
 
