@@ -11,3 +11,8 @@
   align-items: center;
   flex-direction: column;
 }
+
+ /* `https://api.upcitemdb.com/prod/trial/lookup?upc=${decodedText}`
+  `https://api.fda.gov/drug/ndc.json?ndc=${decodedText}`
+  `https://world.openfoodfacts.org/api/v0/product/${decodedText}.json`
+ */
