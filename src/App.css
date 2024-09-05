@@ -1,18 +1,50 @@
-.main-reader{
-  width:700px ;
-  height: 400px;
-}
-
-.App{
-  width: 100vw;
+.contaner {
+  width: 100vh;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
- /* `https://api.upcitemdb.com/prod/trial/lookup?upc=${decodedText}`
+#qr-reader {
+  width: 100%;
+  height: 100%;
+}
+#qr-shaded-region {
+  width: 100%;
+  height: 100%;
+}
+/* `https://api.upcitemdb.com/prod/trial/lookup?upc=${decodedText}`
   `https://api.fda.gov/drug/ndc.json?ndc=${decodedText}`
   `https://world.openfoodfacts.org/api/v0/product/${decodedText}.json`
  */
+
+/* Default (Desktop and Larger Screens) */
+.App {
+    width: 701px;
+  height: 500px;
+}
+
+/* Tablets (width between 768px and 1024px) */
+@media (max-width: 1024px) {
+  .App {
+    width: 601px;
+    height: 400px;
+  }
+}
+
+/* Larger Phones (width between 480px and 767px) */
+@media (max-width: 767px) {
+  .App {
+    width: 501px;
+    height: 400px;
+  }
+}
+
+/* Small Phones (width below 480px) */
+@media (max-width: 480px) {
+  .App {
+    width: 501px;
+    height: 400px;
+  }
+}

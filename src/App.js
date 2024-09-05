@@ -1,20 +1,45 @@
-// import logo from './logo.svg';
-// import './App.css';
-// import {Html5QrcodeScanner} from "html5-qrcode"
-// import { useEffect, useState } from 'react';
+// import logo from "./logo.svg";
+// import "./App.css";
+// import { Html5QrcodeScanner } from "html5-qrcode";
+// import { useEffect, useState } from "react";
+
+import Scanner from "./Scanner";
+
 // function App() {
 //   const [result, setResult] = useState(null);
+
 //   useEffect(() => {
 //     function onScanSuccess(decodedText, decodedResult) {
 //       setResult(decodedText);
 //       console.log(`Code scanned = ${decodedText}`, decodedResult);
 //     }
-//     var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
+
+//     function getOptimalQrBoxSize() {
+//       if (window.innerWidth < 600) {
+//         return { width: 300, height: 100 }; // Adjusted for small screens
+//       } else {
+//         return { width: 500, height: 150 }; // Adjusted for larger screens
+//       }
+//     }
+
+//     const config = {
 //       fps: 10,
-//       qrbox: 250,
-//     });
+//       qrbox: getOptimalQrBoxSize(),
+//       rememberLastUsedCamera: true, // Ensures the same camera is used if the user reopens the scanner
+//     };
+
+//     const html5QrcodeScanner = new Html5QrcodeScanner(
+//       "qr-reader",
+//       config,
+//       false
+//     );
 //     html5QrcodeScanner.render(onScanSuccess);
-//   },[])
+
+//     return () => {
+//       html5QrcodeScanner.clear();
+//     };
+//   }, []);
+
 //   return (
 //     <div className="App">
 //       <div id="qr-reader" className="main-reader"></div>
@@ -24,58 +49,6 @@
 // }
 
 // export default App;
-
-
-
-import logo from "./logo.svg";
-import "./App.css";
-import { Html5QrcodeScanner } from "html5-qrcode";
-import { useEffect, useState } from "react";
-
-function App() {
-  const [result, setResult] = useState(null);
-
-  useEffect(() => {
-    function onScanSuccess(decodedText, decodedResult) {
-      setResult(decodedText);
-      console.log(`Code scanned = ${decodedText}`, decodedResult);
-    }
-
-    function getOptimalQrBoxSize() {
-      if (window.innerWidth < 600) {
-        return { width: 300, height: 100 }; // Adjusted for small screens
-      } else {
-        return { width: 500, height: 150 }; // Adjusted for larger screens
-      }
-    }
-
-    const config = {
-      fps: 10,
-      qrbox: getOptimalQrBoxSize(),
-      rememberLastUsedCamera: true, // Ensures the same camera is used if the user reopens the scanner
-    };
-
-    const html5QrcodeScanner = new Html5QrcodeScanner(
-      "qr-reader",
-      config,
-      false
-    );
-    html5QrcodeScanner.render(onScanSuccess);
-
-    return () => {
-      html5QrcodeScanner.clear();
-    };
-  }, []);
-
-  return (
-    <div className="App">
-      <div id="qr-reader" className="main-reader"></div>
-      <h1>{result}</h1>
-    </div>
-  );
-}
-
-export default App;
 
 
 // import logo from "./logo.svg";
@@ -143,3 +116,16 @@ export default App;
 // }
 
 // export default App;
+
+
+import React from 'react'
+import "./App.css"
+const App = () => {
+  return (
+    <div className="contaner">
+      <Scanner />
+    </div>
+  );
+}
+
+export default App
