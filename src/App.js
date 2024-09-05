@@ -94,6 +94,7 @@ function App() {
         );
      const data = await response.json();
      console.log(data)
+     setResult(JSON.stringify(data));
       console.log(`Code scanned = ${decodedText}`, decodedResult);
     }
 
