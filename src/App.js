@@ -87,8 +87,13 @@ function App() {
   const [result, setResult] = useState(null);
 
   useEffect(() => {
-    function onScanSuccess(decodedText, decodedResult) {
+   async function onScanSuccess(decodedText, decodedResult) {
       setResult(decodedText);
+        const response = await fetch(
+          `https://api.fda.gov/drug/ndc.json?ndc=${decodedText}`
+        );
+     const data = await response.json();
+     console.log(data)
       console.log(`Code scanned = ${decodedText}`, decodedResult);
     }
 
@@ -100,7 +105,7 @@ function App() {
       } else if (screenWidth >= 480 && screenWidth < 768) {
         return { width: 300, height: 100 }; // Medium devices (e.g., larger phones, small tablets)
       } else if (screenWidth >= 768 && screenWidth < 1024) {
-        return { width: 400, height: 120 }; // Larger tablets and small laptops
+        return { width: 800, height: 400 }; // Larger tablets and small laptops
       } else {
         return { width: 500, height: 150 }; // Desktops and larger screens
       }
